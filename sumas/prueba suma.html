@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prueba</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<form onsubmit="return false;">
+  <label for="valor1">Ingrese el primer valor:</label>
+  <input type="number" id="valor1" required>
+  <br>
+  
+  <label for="valor2">Ingrese el segundo valor:</label>
+  <input type="number" id="valor2" required>
+  <br>
+
+  <button ondblclick="calcularSumaYCompara()">Calcular</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+  function calcularSumaYCompara() {
+    var valor1 = parseFloat(document.getElementById("valor1").value);
+    var valor2 = parseFloat(document.getElementById("valor2").value);
+
+    if (!isNaN(valor1) && !isNaN(valor2)) {
+      var suma = valor1 + valor2;
+      var resultadoDiv = document.getElementById("resultado");
+
+      resultadoDiv.innerHTML = "Valor 1: " + valor1 + "<br>" +
+                               "Valor 2: " + valor2 + "<br>";
+
+      if (suma > 100) {
+        resultadoDiv.innerHTML += "La suma es mayor que 100: " + suma + "<br>";
+      } else {
+        resultadoDiv.innerHTML += "La suma no es mayor que 100.<br>";
+      }
+    } else {
+      alert("Por favor, ingrese valores numéricos válidos.");
+    }
+  }
+</script>
+
+</body>
+</html>
